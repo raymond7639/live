@@ -1,0 +1,37 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100% ;
+}
+h1{
+    font-size: 100px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(211, 211, 211);
+}
+#box{
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    border: 7px solid white ;
+    background-color: rgb(200, 10, 230);
+}
+.btn{
+    height: 50px;
+    width: 200px;
+    background-color: #d40d0d00;
+    margin-top: 12px;
+    text-align: center  ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#008000 ;
+}
