@@ -1,0 +1,19 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100% ;
+}
+h1{
+    font-size: 100px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #d40d0d00;
+}

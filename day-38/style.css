@@ -15,23 +15,33 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(211, 211, 211);
+    background-color: #d40d0d00;
 }
-#box{
-    height: 400px;
-    width: 400px;
-    border-radius: 50%;
-    border: 7px solid white ;
-    background-color: rgb(200, 10, 230);
+h5{
+    font-size: 30px;
 }
-.btn{
+h1{
+    padding: 10px 10px;
+    background-color: rgb(125, 125, 125);
+    word-spacing: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+}
+button{
     height: 50px;
     width: 200px;
-    background-color: #d40d0d00;
+    border-radius: 8px;
+    font-size: 20px;
+    border: none;
+    background-color: #fff;
     margin-top: 12px;
     text-align: center  ;
     display: flex;
     justify-content: center;
     align-items: center;
     color:#008000 ;
+    font-weight: 600;           
+}
+button:active{
+    scale: 0.95;
 }
