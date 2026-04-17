@@ -15,6 +15,7 @@ body {
 }
 
 .card {
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +28,7 @@ body {
   border-radius: 50px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-.card .card img {
+.card img {
   width: 200px;
   height: 200px;
   border-radius: 50%;

@@ -16,6 +16,7 @@ body {
 }
 
 .card {
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +30,7 @@ body {
     font-family:
         "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 
-    .card img {
+    img {
         width: 200px;
         height: 200px;
         border-radius: 50%;
@@ -88,5 +89,6 @@ body {
             filter: brightness(0) saturate(100%) invert(69%) sepia(16%) saturate(792%) hue-rotate(210deg)
                 brightness(96%) contrast(92%);
         }
+        // margin-bottom: 87px;
     }
 }
