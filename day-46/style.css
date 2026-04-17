@@ -11,14 +11,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #D5C6FF;
-}
-
-.card img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 2px solid #F7DF1E;
+  background-color: #d5c6ff;
 }
 
 .card {
@@ -28,12 +21,17 @@ body {
   align-items: center;
   width: 538px;
   height: 717px;
-  background-color: #26235C;
+  background-color: #26235c;
   padding-left: 54px;
   padding-right: 54px;
   border-radius: 50px;
-  margin-top: 71px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.card .card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid #f7df1e;
 }
 .card h1 {
   font-size: 35px;
@@ -42,7 +40,7 @@ body {
 }
 .card h2 {
   font-size: 23px;
-  color: #A79AE0;
+  color: #a79ae0;
 }
 .card .descption {
   display: flex;
@@ -63,7 +61,7 @@ body {
   align-items: center;
   width: 275px;
   height: 44px;
-  background-color: #A79AE0;
+  background-color: #a79ae0;
   border-radius: 10px;
 }
 .card .gmail p {
