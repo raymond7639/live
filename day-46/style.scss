@@ -1,0 +1,95 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #d5c6ff;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.card {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 538px;
+    height: 717px;
+    background-color: #26235c;
+    padding-left: 54px;
+    padding-right: 54px;
+    border-radius: 50px;
+    font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 2px solid #f7df1e;
+    }
+    h1 {
+        font-size: 35px;
+        padding-top: 26px;
+        color: white;
+    }
+
+    h2 {
+        font-size: 23px;
+        color: #a79ae0;
+    }
+
+    .descption {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        p {
+            color: white;
+            padding-top: 26px;
+            font-size: 18px;
+            text-align: center;
+            max-width: 90%;
+        }
+    }
+
+    .gmail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 275px;
+        height: 44px;
+        background-color: #9082EC;
+        border-radius: 10px;
+        p {
+            color: white;
+            margin: 0px;
+        }
+    }
+    .handles {
+        padding-top: 34px;
+        display: flex;
+        flex-direction: row;
+        gap: 35px;
+
+        img {
+            width: 48px;
+            height: 35px;
+            border: none;
+            border-radius: 0px;
+            width: 30px;
+            filter: brightness(0) saturate(100%) invert(69%) sepia(16%) saturate(792%) hue-rotate(210deg)
+                brightness(96%) contrast(92%);
+        }
+    }
+}
