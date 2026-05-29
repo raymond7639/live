@@ -3,5 +3,20 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "type": "java",
+            "name": "PackageDemo",
+            "request": "launch",
+            "mainClass": "PackageDemo",
+            "projectName": "live_72e9d2e5"
+        },
+        {
+            "type": "java",
+            "name": "InnerClassDemo",
+            "request": "launch",
+            "mainClass": "InnerClassDemo",
+            "projectName": "live_72e9d2e5"
+        }
+    ]
 }
