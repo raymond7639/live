@@ -236,7 +236,7 @@ body {
     scale: 1.02;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
    .main {
     background-color: var(--tri2);
     // height: 100vh;
@@ -315,7 +315,7 @@ body {
 
             .addTask {
                 width: 100%;
-                // height: 50%;
+                height: 40vh;
                 background-color: rgb(206, 222, 237);
                 border-radius: 20px;
 
@@ -381,7 +381,7 @@ body {
                 overflow: auto;
                 border-radius: 20px;
                 width: 100%;
-                height: 50%;
+                height: 60vh;
                 background-color: rgb(212, 237, 208);
                 padding: 30px;
                 .task {
