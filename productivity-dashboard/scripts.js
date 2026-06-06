@@ -121,7 +121,7 @@ function motivationalQuote() {
         let response = await fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random');
         let data = await response.json();
         motivationQuoteContent.innerHTML = data[0].q;
-        motivationAuthor.innerHTML = data[0].a;
+        motivationAuthor.innerHTML = '- '+ data[0].a;
     }
     fetchQuote();
 }
