@@ -20,13 +20,10 @@ function openFeatures() {
 }
 openFeatures();
 
-
-
 function todolist() {
     var currentTask = [];
 
     if (localStorage.getItem('currentTask')) {
-        console.log("Task list is ");
         currentTask = JSON.parse(localStorage.getItem('currentTask'));
     } else {
         console.log("Task list is empty");
@@ -116,13 +113,100 @@ function dayPlanner() {
 
 dayPlanner();
 
-var motivationQuote = document.querySelector('.motivation-2 h1');
-var motivationAuthor = document.querySelector('.motivation-3 h2');
+function motivationalQuote() {
+    var motivationQuoteContent = document.querySelector('.motivation-2 h1');
+    var motivationAuthor = document.querySelector('.motivation-3 h2');
 
-async function fetchQuote() {
-    let response = await fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random');
-    let data = await response.json();
-    motivationQuote.innerHTML = data[0].q;
-    motivationAuthor.innerHTML = data[0].a;
+    async function fetchQuote() {
+        let response = await fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random');
+        let data = await response.json();
+        motivationQuoteContent.innerHTML = data[0].q;
+        motivationAuthor.innerHTML = data[0].a;
+    }
+    fetchQuote();
 }
-fetchQuote();
+motivationalQuote();
+
+function pomodoroTimer() {
+    let totalSeconds = 1500;
+let timerInterval = null;
+
+let timer = document.querySelector('.pomo-timer h1')
+
+let startButton = document.querySelector('.pomo-timer .start-timer');
+let pauseButton = document.querySelector('.pomo-timer .pause-timer');
+let resetButton = document.querySelector('.pomo-timer .reset-timer');
+var session = document.querySelector('#pomodore_timer_page .session');
+
+var isWorkSession = true;
+
+
+
+function updateTimer() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+    console.log(minutes, seconds);
+
+    timer.innerHTML = `${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}`;
+
+}
+
+function startTimer() {
+    clearInterval(timerInterval)
+    if (isWorkSession) {
+        timerInterval = setInterval(() => {
+            
+            if (totalSeconds > 0) {
+                totalSeconds--
+                updateTimer();
+            } else {
+                isWorkSession = false;
+                clearInterval(timerInterval);
+                timer.innerHTML = `05:00`
+                session.innerHTML = 'Break Session';
+                session.style.backgroundColor = 'blue';
+                totalSeconds = 5 * 60;
+            }
+
+        }, 1000);
+    } else {
+        timerInterval = setInterval(() => {
+
+            if (totalSeconds > 0) {
+                totalSeconds--
+                updateTimer();
+            } else {
+                isWorkSession = true;
+                clearInterval(timerInterval);
+                timer.innerHTML = `25:00`
+                session.innerHTML = 'Work Session';
+                session.style.backgroundColor = 'green';
+                totalSeconds = 25 * 60;
+            }
+
+        }, 1000);
+    }
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    totalSeconds = 25 * 60;
+    updateTimer();
+
+}
+startButton.addEventListener('click', () => {
+    startTimer();
+})
+pauseButton.addEventListener('click', () => {
+    pauseTimer();
+})
+resetButton.addEventListener('click', () => {
+    resetTimer();
+})
+
+}
+pomodoroTimer();
