@@ -1,5 +1,5 @@
 function openFeatures() {
-    let allElems = document.querySelectorAll('.elem')
+    let allElems = document.querySelectorAll('.card .elem')
     let fullElemPage = document.querySelectorAll('.fullElem')
     let fullElemPageBackBtn = document.querySelectorAll('.fullElem .back')
 

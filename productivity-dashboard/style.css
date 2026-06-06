@@ -49,31 +49,36 @@ body {
   padding: 30px;
   gap: 30px;
 }
-.main .allElem .elem {
+.main .allElem .card {
   height: 350px;
   width: 250px;
-  background: rgba(255, 255, 255, 0.29);
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.2px);
-  -webkit-backdrop-filter: blur(9.2px);
-  border: 2px solid rgba(255, 255, 255, 0.44);
-  overflow: hidden;
-  transition: all ease 0.3;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  border-radius: 30px;
+  transition: all 0.3s;
 }
-.main .allElem .elem h2 {
+.main .allElem .card .elem {
+  background-color: #1a1a1a;
+  border-radius: 30px;
+  transition: all 0.2s;
+  height: 350px;
+  width: 250px;
+  backdrop-filter: blur(9.2px);
+  overflow: hidden;
+}
+.main .allElem .card .elem h2 {
   position: absolute;
   font-size: 30px;
   right: 5%;
   bottom: 4%;
 }
-.main .allElem .elem img {
+.main .allElem .card .elem img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.main .fullElem {
+
+.fullElem {
   display: none;
   position: absolute;
   width: 100%;
@@ -82,20 +87,53 @@ body {
   z-index: 999;
   top: 0;
 }
-.main .fullElem .back {
+.fullElem .close-container {
   position: absolute;
-  height: 50px;
-  width: 50px;
   right: 5%;
   top: 5%;
-  border-radius: 50px;
-  border-style: none;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+  z-index: 10;
 }
-.main #to_do_page h2 {
+.fullElem .close-container .leftright {
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #f4a259;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
+}
+.fullElem .close-container .rightleft {
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #f4a259;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in;
+}
+.fullElem .close-container label {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+}
+.fullElem .close-container .close1 {
+  margin: 55px 0 0 5px;
+  position: absolute;
+}
+
+#to_do_page h2 {
   font-size: 65px;
 }
-.main #to_do_page .todo-container {
+#to_do_page .todo-container {
   height: 100vh;
   width: 100%;
   margin-top: 40px;
@@ -104,20 +142,20 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.main #to_do_page .todo-container .addTask {
+#to_do_page .todo-container .addTask {
   width: 33%;
   height: 100%;
   background-color: rgb(206, 222, 237);
   border-radius: 20px;
 }
-.main #to_do_page .todo-container .addTask form {
+#to_do_page .todo-container .addTask form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 30px;
   gap: 10px;
 }
-.main #to_do_page .todo-container .addTask form input[type=text] {
+#to_do_page .todo-container .addTask form input[type=text] {
   padding: 10px 25px;
   width: 100%;
   font-size: 28px;
@@ -126,7 +164,7 @@ body {
   border: none;
   outline: none;
 }
-.main #to_do_page .todo-container .addTask form textarea {
+#to_do_page .todo-container .addTask form textarea {
   padding: 10px 25px;
   width: 100%;
   height: 280px;
@@ -136,7 +174,7 @@ body {
   border: none;
   outline: none;
 }
-.main #to_do_page .todo-container .addTask form button {
+#to_do_page .todo-container .addTask form button {
   padding: 10px 25px;
   width: 100%;
   font-size: 28px;
@@ -148,7 +186,7 @@ body {
   transition: all ease-in 0.3;
   cursor: pointer;
 }
-.main #to_do_page .todo-container .addTask form .mark-imp {
+#to_do_page .todo-container .addTask form .mark-imp {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -158,13 +196,13 @@ body {
   width: 100%;
   gap: 30px;
 }
-.main #to_do_page .todo-container .addTask form .mark-imp label {
+#to_do_page .todo-container .addTask form .mark-imp label {
   font-size: 20px;
 }
-.main #to_do_page .todo-container .addTask form .mark-imp input {
+#to_do_page .todo-container .addTask form .mark-imp input {
   scale: 1.5;
 }
-.main #to_do_page .todo-container .allTask {
+#to_do_page .todo-container .allTask {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -175,7 +213,7 @@ body {
   background-color: rgb(212, 237, 208);
   padding: 30px;
 }
-.main #to_do_page .todo-container .allTask .task {
+#to_do_page .todo-container .allTask .task {
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -185,27 +223,27 @@ body {
   margin-bottom: 10px;
   background-color: var(--pri);
 }
-.main #to_do_page .todo-container .allTask .task h5 {
+#to_do_page .todo-container .allTask .task h5 {
   color: black;
   font-size: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.main #to_do_page .todo-container .allTask .task h5 span {
+#to_do_page .todo-container .allTask .task h5 span {
   border-radius: 50px;
   padding: 4px 6px;
   background-color: red;
   color: white;
   font-size: 10px;
 }
-.main #to_do_page .todo-container .allTask .task h5 span.true {
+#to_do_page .todo-container .allTask .task h5 span.true {
   opacity: 1;
 }
-.main #to_do_page .todo-container .allTask .task h5 span.false {
+#to_do_page .todo-container .allTask .task h5 span.false {
   opacity: 0;
 }
-.main #to_do_page .todo-container .allTask .task button {
+#to_do_page .todo-container .allTask .task button {
   padding: 15px 30px;
   color: rgb(255, 255, 255);
   background-color: rgb(3, 118, 35);
@@ -214,10 +252,11 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-.main #daily_planner_page h2 {
+
+#daily_planner_page h2 {
   font-size: 65px;
 }
-.main #daily_planner_page .day-planner {
+#daily_planner_page .day-planner {
   background-color: #7f2e2e;
   height: 85%;
   width: 100%;
@@ -230,21 +269,21 @@ body {
   align-items: flex-start;
   overflow: auto;
 }
-.main #daily_planner_page .day-planner .day-planner-time {
+#daily_planner_page .day-planner .day-planner-time {
   display: flex;
   align-items: center;
   position: relative;
   margin-top: 10px;
   width: 49%;
 }
-.main #daily_planner_page .day-planner .day-planner-time p {
+#daily_planner_page .day-planner .day-planner-time p {
   position: absolute;
   top: 10%;
   left: 1%;
   color: black;
   font-size: 18px;
 }
-.main #daily_planner_page .day-planner .day-planner-time input {
+#daily_planner_page .day-planner .day-planner-time input {
   padding: 20px 45px;
   padding-top: 32px;
   border-radius: 5px;
@@ -254,14 +293,15 @@ body {
   border: none;
   color: black;
 }
-.main #motivation_page .motivation_page_container {
+
+#motivation_page .motivation_page_container {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.main #motivation_page .motivation_page_container .motivation-container {
+#motivation_page .motivation_page_container .motivation-container {
   min-height: 600px;
   width: 80%;
   position: absolute;
@@ -270,7 +310,7 @@ body {
   transform: translate(-50%, -50%);
   border-radius: 40px;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper {
   z-index: 10;
   position: absolute;
   width: 100%;
@@ -278,20 +318,20 @@ body {
   border-radius: 40px;
   padding: 15px;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper img {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper img {
   position: absolute;
   right: 5%;
   top: 5%;
   opacity: 0.2;
   height: 120px;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-1 {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-1 {
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-1 h2 {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-1 h2 {
   padding: 30px;
   background-color: rgba(0, 0, 255, 0.433);
   border-radius: 30px;
@@ -301,23 +341,23 @@ body {
   font-weight: 500;
   text-align: right;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-2 {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-2 {
   padding: 10px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-2 h1 {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-2 h1 {
   font-size: 60px;
   font-weight: 700;
   color: white;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-3 {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-3 {
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.main #motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-3 h2 {
+#motivation_page .motivation_page_container .motivation-container .motivation-wrapper .motivation-3 h2 {
   padding: 30px;
   background-color: rgba(0, 0, 255, 0.433);
   border-radius: 30px;
@@ -327,10 +367,11 @@ body {
   font-weight: 500;
   text-align: right;
 }
-.main #pomodore_timer_page h2 {
+
+#pomodore_timer_page h2 {
   font-size: 50px;
 }
-.main #pomodore_timer_page .session {
+#pomodore_timer_page .session {
   position: absolute;
   top: 20%;
   left: 50%;
@@ -341,17 +382,17 @@ body {
   border-radius: 5px;
   color: rgb(255, 255, 255);
 }
-.main #pomodore_timer_page .pomo-timer {
+#pomodore_timer_page .pomo-timer {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.main #pomodore_timer_page .pomo-timer h1 {
+#pomodore_timer_page .pomo-timer h1 {
   font-size: 170px;
 }
-.main #pomodore_timer_page .pomo-timer button {
+#pomodore_timer_page .pomo-timer button {
   background-color: rgb(23, 40, 78);
   color: white;
   padding: 15px 40px;
@@ -363,17 +404,35 @@ body {
   font-weight: 500;
   transition: all ease 0.1s;
 }
+.close-container:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: #f25c66;
+}
+
+.close-container:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: #f25c66;
+}
+
+.close-container:hover label {
+  opacity: 1;
+}
+
 .elem:active {
   scale: 0.97;
 }
 
-.main #to_do_page .todo-container .addTask form button:active {
-  scale: 0.97;
+.elem:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
 }
 
-.back:hover {
-  scale: 1.1;
-  background-color: rgb(237, 63, 63);
+.card:hover {
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+}
+
+.main #to_do_page .todo-container .addTask form button:active {
+  scale: 0.97;
 }
 
 .main #motivation_page .motivation-container::after {
