@@ -31,10 +31,10 @@ body {
     height: 100%;
     background-color: var(--tri);
 }
-.main {
+.main{
     background-color: var(--tri2);
-    // height: 100vh;
-    margin: 20px 20px 20px 20px;
+    // height: 100%;
+    // margin: 20px 20px 20px 20px;
     nav {
         height: 91px;
         width: 100%;
@@ -86,7 +86,7 @@ body {
             width: 50px;
             right: 5%;
             top: 5%;
-            background-color: rgb(148, 139, 139);
+            // background-color: rgb(148, 139, 139);
             border-radius: 50px;
             border-style: none;
             cursor: pointer;
@@ -398,7 +398,8 @@ body {
     scale: 0.97;
 }
 .back:hover {
-    scale: 1.02;
+    scale:1.1;
+    background-color: rgb(237, 63, 63);
 }
 .main #motivation_page .motivation-container::after {
     content: "";

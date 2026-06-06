@@ -35,7 +35,6 @@ body {
 
 .main {
   background-color: var(--tri2);
-  margin: 20px 20px 20px 20px;
 }
 .main nav {
   height: 91px;
@@ -89,7 +88,6 @@ body {
   width: 50px;
   right: 5%;
   top: 5%;
-  background-color: rgb(148, 139, 139);
   border-radius: 50px;
   border-style: none;
   cursor: pointer;
@@ -374,7 +372,8 @@ body {
 }
 
 .back:hover {
-  scale: 1.02;
+  scale: 1.1;
+  background-color: rgb(237, 63, 63);
 }
 
 .main #motivation_page .motivation-container::after {
