@@ -21,6 +21,7 @@ function openFeatures() {
 openFeatures();
 
 
+
 function todolist() {
     var currentTask = [];
 
@@ -32,7 +33,7 @@ function todolist() {
     }
 
     function renderTask() {
-        let allTask = document.querySelector('.allTask');
+        var allTask = document.querySelector('.allTask');
 
         var sum = '';
         currentTask.forEach((val, id) => {
@@ -80,3 +81,48 @@ function todolist() {
 }
 
 todolist();
+
+function dayPlanner() {
+    var dayPlanner = document.querySelector('.day-planner');
+    var dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {};
+    var hours = Array.from({ length: 18 }, function (_, idx) {
+        return `${6 + idx}:00 - ${7 + idx}:00`
+    })
+    var wholeDaySum = '';
+    hours.forEach(function (eleml, idx) {
+        var savedData = dayPlanData[idx] || '';
+        wholeDaySum += `
+                <div class="day-planner-time">
+                    <p>${eleml}</p>
+                    <input id=${idx} type="text" placeholder="..." value=${savedData}>
+                </div>`
+
+    })
+
+
+    dayPlanner.innerHTML = wholeDaySum;
+
+    var dayPlannerInput = document.querySelectorAll('.day-planner input');
+    dayPlannerInput.forEach(function (elem) {
+        elem.addEventListener('input', () => {
+            dayPlanData[elem.id] = elem.value;
+
+            localStorage.setItem('dayPlanData', JSON.stringify(dayPlanData))
+
+        })
+    })
+
+}
+
+dayPlanner();
+
+var motivationQuote = document.querySelector('.motivation-2 h1');
+var motivationAuthor = document.querySelector('.motivation-3 h2');
+
+async function fetchQuote() {
+    let response = await fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random');
+    let data = await response.json();
+    motivationQuote.innerHTML = data[0].q;
+    motivationAuthor.innerHTML = data[0].a;
+}
+fetchQuote();

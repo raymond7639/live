@@ -93,8 +93,6 @@ body {
         }
     }
     #to_do_page {
-        // display: block;
-
         h2 {
             font-size: 65px;
         }
@@ -222,8 +220,126 @@ body {
             }
         }
     }
-    #daily_planner_page{
-        background-color: red;
+    #daily_planner_page {
+        h2 {
+            font-size: 65px;
+        }
+        .day-planner {
+            background-color: #7f2e2e;
+            height: 85%;
+            width: 100%;
+            margin-top: 40px;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            overflow: auto;
+
+            .day-planner-time {
+                display: flex;
+                align-items: center;
+                position: relative;
+                margin-top: 10px;
+                width: 49%;
+                p {
+                    position: absolute;
+                    top: 10%;
+                    left: 1%;
+                    color: black;
+                    font-size: 18px;
+                }
+
+                input {
+                    padding: 20px 45px;
+                    padding-top: 32px;
+                    border-radius: 5px;
+                    font-size: 30px;
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    color: black;
+                }
+            }
+        }
+    }
+    #motivation_page {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        .motivation-container {
+            min-height: 600px;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 40px;
+
+            .motivation-wrapper {
+                z-index: 10;
+                position: absolute;
+                // height: 100%;
+                width: 100%;
+                background-color: rebeccapurple;
+                border-radius: 40px;
+                padding: 15px;
+                img{
+                    position: absolute;
+                    right: 5%;
+                    top: 5%;
+                    opacity: 0.2;
+                    height: 120px;
+                }
+                .motivation-1{
+                    margin-top: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    h2{
+                        padding: 30px;
+                        background-color:rgba(0, 0, 255, 0.433) ;
+                        border-radius: 30px;
+                        width: fit-content;
+                        font-size: 40px;
+                        font-weight: 500;
+                        text-align: right  ;
+                    }
+                }
+                .motivation-2{
+                    padding: 10px;
+                    margin-top: 40px;
+                    margin-bottom: 40px;
+                    h1{
+                        font-size: 60px;
+                        font-weight: 700;
+                        color: white;
+                    }
+                }
+                .motivation-3{
+                    margin-top: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    h2{
+                        padding: 30px;
+                        background-color:rgba(0, 0, 255, 0.433) ;
+                        border-radius: 30px;
+                        width: fit-content;
+                        font-size: 40px;
+                        font-weight: 500;
+                        text-align: right  ;
+
+                    }
+                }
+
+            }
+        }
     }
 }
 .elem:active {
@@ -235,201 +351,14 @@ body {
 .back:hover {
     scale: 1.02;
 }
-
-@media (max-width: 800px) {
-   .main {
-    background-color: var(--tri2);
-    // height: 100vh;
-    margin: 20px 20px 20px 20px;
-    nav {
-        height: 91px;
-        width: 100%;
-        background-color: var(--pri);
-    }
-    .allElem {
-        display: flex;
-        height: 100vh;
-        flex-wrap: wrap;
-        align-items: first start;
-        justify-content: center;
-        padding: 30px;
-        gap: 10px;
-        .elem {
-            height: 350px;
-            width: 250px;
-            background: rgba(255, 255, 255, 0.29);
-            border-radius: 10px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(9.2px);
-            -webkit-backdrop-filter: blur(9.2px);
-            border: 2px solid rgba(255, 255, 255, 0.44);
-            overflow: hidden;
-            transition: all ease 0.3;
-            h2 {
-                position: absolute;
-                font-size: 30px;
-                right: 5%;
-                bottom: 4%;
-            }
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-    .fullElem {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--tri2);
-        z-index: 999;
-        top: 0;
-
-        .back {
-            position: absolute;
-            height: 50px;
-            width: 50px;
-            right: 5%;
-            top: 5%;
-            background-color: rgb(148, 139, 139);
-            border-radius: 50px;
-            border-style: none;
-            cursor: pointer;
-        }
-    }
-    #to_do_page {
-        h2 {
-            font-size: 65px;
-        }
-        .todo-container {
-            height: 100vh;
-            width: 100%;
-            margin-top: 40px;
-            background-color: var(--sec);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-
-            .addTask {
-                width: 100%;
-                height: 40vh;
-                background-color: rgb(206, 222, 237);
-                border-radius: 20px;
-
-                form {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    padding: 30px;
-                    gap: 10px;
-                    input[type="text"] {
-                        padding: 10px 25px;
-                        width: 100%;
-                        font-size: 28px;
-                        background-color: var(--sec);
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                    }
-                    textarea {
-                        padding: 10px 25px;
-                        width: 100%;
-                        height: 280px;
-                        font-size: 28px;
-                        background-color: var(--sec);
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                    }
-                    button {
-                        padding: 10px 25px;
-                        width: 100%;
-                        font-size: 28px;
-                        background-color: var(--tri);
-                        border-radius: 5px;
-                        font-weight: 700;
-                        border: none;
-                        outline: none;
-                        transition: all ease-in 0.3;
-                        cursor: pointer;
-                    }
-                    .mark-imp {
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-start;
-                        padding: 10px 0;
-                        margin-bottom: 10px;
-                        margin-left: 8px;
-                        width: 100%;
-                        gap: 30px;
-                        label {
-                            font-size: 20px;
-                        }
-                        input {
-                            scale: 1.5;
-                        }
-                    }
-                }
-            }
-            .allTask {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                overflow: auto;
-                border-radius: 20px;
-                width: 100%;
-                height: 60vh;
-                background-color: rgb(212, 237, 208);
-                padding: 30px;
-                .task {
-                    border-radius: 10px;
-                    display: flex;
-
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 100%;
-                    padding: 20px 30px;
-                    margin-bottom: 10px;
-                    background-color: var(--pri);
-
-                    h5 {
-                        color: black;
-                        font-size: 30px;
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                        span {
-                            border-radius: 50px;
-                            padding: 4px 6px;
-                            background-color: red;
-                            color: white;
-                            font-size: 10px;
-                        }
-                        span.true {
-                            opacity: 1;
-                        }
-                        span.false {
-                            opacity: 0;
-                        }
-                    }
-                    button {
-                        padding: 15px 30px;
-                        color: rgb(255, 255, 255);
-                        background-color: rgb(3, 118, 35);
-                        border: none;
-                        font-size: 20px;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-    }
-    #daily_planner_page{
-        background-color: red;
-    }
-}
+.main #motivation_page .motivation-container::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(223, 203, 203);
+    border-radius: 40px;
+    scale: 1.15;
+    z-index: 8;
+    filter: blur(150px);
 }
