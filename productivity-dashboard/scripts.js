@@ -6,7 +6,6 @@ function openFeatures() {
 
     allElems.forEach(function (elem) {
         elem.addEventListener('click', function () {
-            console.log(elem);
 
             fullElemPage[elem.id].style.display = 'block'
         })
@@ -128,7 +127,7 @@ function motivationalQuote() {
 motivationalQuote();
 
 function pomodoroTimer() {
-    let totalSeconds = 1500;
+let totalSeconds = 1500;
 let timerInterval = null;
 
 let timer = document.querySelector('.pomo-timer h1')
@@ -145,7 +144,6 @@ var isWorkSession = true;
 function updateTimer() {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
-    console.log(minutes, seconds);
 
     timer.innerHTML = `${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}`;
 
