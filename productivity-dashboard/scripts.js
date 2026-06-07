@@ -120,91 +120,141 @@ function motivationalQuote() {
         let response = await fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random');
         let data = await response.json();
         motivationQuoteContent.innerHTML = data[0].q;
-        motivationAuthor.innerHTML = '- '+ data[0].a;
+        motivationAuthor.innerHTML = '- ' + data[0].a;
     }
     fetchQuote();
 }
 motivationalQuote();
 
 function pomodoroTimer() {
-let totalSeconds = 1500;
-let timerInterval = null;
+    let totalSeconds = 1500;
+    let timerInterval = null;
 
-let timer = document.querySelector('.pomo-timer h1')
+    let timer = document.querySelector('.pomo-timer h1')
 
-let startButton = document.querySelector('.pomo-timer .start-timer');
-let pauseButton = document.querySelector('.pomo-timer .pause-timer');
-let resetButton = document.querySelector('.pomo-timer .reset-timer');
-var session = document.querySelector('#pomodore_timer_page .session');
+    let startButton = document.querySelector('.pomo-timer .start-timer');
+    let pauseButton = document.querySelector('.pomo-timer .pause-timer');
+    let resetButton = document.querySelector('.pomo-timer .reset-timer');
+    var session = document.querySelector('#pomodore_timer_page .session');
 
-var isWorkSession = true;
+    var isWorkSession = true;
 
 
 
-function updateTimer() {
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
+    function updateTimer() {
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
 
-    timer.innerHTML = `${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}`;
+        timer.innerHTML = `${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}`;
 
-}
-
-function startTimer() {
-    clearInterval(timerInterval)
-    if (isWorkSession) {
-        timerInterval = setInterval(() => {
-            
-            if (totalSeconds > 0) {
-                totalSeconds--
-                updateTimer();
-            } else {
-                isWorkSession = false;
-                clearInterval(timerInterval);
-                timer.innerHTML = `05:00`
-                session.innerHTML = 'Break Session';
-                session.style.backgroundColor = 'blue';
-                totalSeconds = 5 * 60;
-            }
-
-        }, 1000);
-    } else {
-        timerInterval = setInterval(() => {
-
-            if (totalSeconds > 0) {
-                totalSeconds--
-                updateTimer();
-            } else {
-                isWorkSession = true;
-                clearInterval(timerInterval);
-                timer.innerHTML = `25:00`
-                session.innerHTML = 'Work Session';
-                session.style.backgroundColor = 'green';
-                totalSeconds = 25 * 60;
-            }
-
-        }, 1000);
     }
-}
 
-function pauseTimer() {
-    clearInterval(timerInterval);
-}
+    function startTimer() {
+        clearInterval(timerInterval)
+        if (isWorkSession) {
+            timerInterval = setInterval(() => {
 
-function resetTimer() {
-    clearInterval(timerInterval);
-    totalSeconds = 25 * 60;
-    updateTimer();
+                if (totalSeconds > 0) {
+                    totalSeconds--
+                    updateTimer();
+                } else {
+                    isWorkSession = false;
+                    clearInterval(timerInterval);
+                    timer.innerHTML = `05:00`
+                    session.innerHTML = 'Break Session';
+                    session.style.backgroundColor = 'blue';
+                    totalSeconds = 5 * 60;
+                }
 
-}
-startButton.addEventListener('click', () => {
-    startTimer();
-})
-pauseButton.addEventListener('click', () => {
-    pauseTimer();
-})
-resetButton.addEventListener('click', () => {
-    resetTimer();
-})
+            }, 1000);
+        } else {
+            timerInterval = setInterval(() => {
+
+                if (totalSeconds > 0) {
+                    totalSeconds--
+                    updateTimer();
+                } else {
+                    isWorkSession = true;
+                    clearInterval(timerInterval);
+                    timer.innerHTML = `25:00`
+                    session.innerHTML = 'Work Session';
+                    session.style.backgroundColor = 'green';
+                    totalSeconds = 25 * 60;
+                }
+
+            }, 1000);
+        }
+    }
+
+    function pauseTimer() {
+        clearInterval(timerInterval);
+    }
+
+    function resetTimer() {
+        clearInterval(timerInterval);
+        totalSeconds = 25 * 60;
+        updateTimer();
+
+    }
+    startButton.addEventListener('click', () => {
+        startTimer();
+    })
+    pauseButton.addEventListener('click', () => {
+        pauseTimer();
+    })
+    resetButton.addEventListener('click', () => {
+        resetTimer();
+    })
 
 }
 pomodoroTimer();
+
+function homeDayTime() {
+    data = null;
+    apikey = '933e20f5e3db46309f885345260706';
+    async function weatherApiCall() {
+        var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apikey}&q='varanasi'`)
+        var data = await response.json();
+        console.log(data.current.temp_c);
+        console.log(data);
+        temp.innerHTML = `${Math.floor(data.current.temp_c)}°C`;
+        temp_detail.innerHTML = `${data.current.condition.text}`
+        precipitaion_value.innerHTML = `${data.current.heatindex_c}°C`
+        humidity_value.innerHTML = `${data.current.humidity}%`
+        wind_value.innerHTML = `${data.current.wind_kph}km/h`
+        
+    }
+    weatherApiCall();
+
+    let temp = document.querySelector('.weather-container .sub-container .temp');
+    let temp_detail = document.querySelector('.weather-container .sub-container .temp-info');
+    let precipitaion_value = document.querySelector('#preci-val');
+    let humidity_value = document.querySelector('#humidity-val');
+    let wind_value = document.querySelector('#wind-val');
+
+    function tyme() {
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let date = document.querySelector('#date12');
+        let time_ = document.querySelector('.time-container .time')
+        let day = document.querySelector('.time-container .day')
+        let city = document.querySelector('.time-container .location')
+
+        current = new Date();
+
+        day.innerHTML = `${days[current.getDay()]}`
+        date.innerHTML = `${current.getDate()} ${months[current.getMonth()]}, ${current.getFullYear()}`
+        time_.innerHTML = `${String(current.getHours() > 12 ? current.getHours() - 12 : current.getHours()).padStart('2', '0')}:${String(current.getMinutes()).padStart('2', '0')}:${String(current.getSeconds()).padStart('2', '0')}  ${current.getHours() >= 12 ? 'PM' : 'AM'}`
+        a = current.getHours() > 12 ? current.getHours() - 12 : current.getHours();
+        console.log(String(a).padStart('2', '0'));
+
+    }
+
+    setInterval(() => {
+        tyme();
+    }, 1000)
+}
+homeDayTime();

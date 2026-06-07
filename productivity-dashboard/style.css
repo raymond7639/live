@@ -28,7 +28,6 @@
 html,
 body {
   font-family: normal;
-  width: 100%;
   height: 100%;
   background-color: var(--tri);
 }
@@ -36,18 +35,119 @@ body {
 .main {
   background-color: var(--tri2);
 }
-.main nav {
-  height: 91px;
-  width: 100%;
-  background-color: var(--pri);
-}
 .main .allElem {
   display: flex;
-  height: 100vh;
   flex-wrap: wrap;
-  align-items: first start;
+  align-items: center;
+  justify-content: center;
   padding: 30px;
-  gap: 30px;
+  gap: 15px 30px;
+}
+.main .allElem header {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 30px;
+  padding-left: 48px;
+  padding-right: 48px;
+  background-image: linear-gradient(to bottom, rgba(7, 0, 0, 0), rgba(7, 0, 0, 0.4784313725));
+  background-image: linear-gradient(to right, rgba(7, 0, 0, 0.5137254902), rgba(7, 0, 0, 0.3803921569), rgba(7, 0, 0, 0.4392156863));
+  background-image: url(/assests/landscape.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.main .allElem header .time-container {
+  height: 220px;
+  width: 150px;
+  opacity: 50%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.main .allElem header .time-container .date,
+.main .allElem header .time-container .location {
+  width: 140px;
+  height: 40px;
+  background-color: rgb(115, 78, 78);
+  border-radius: 12px;
+  align-items: center;
+  font-size: 14px;
+  color: #e6d5bb;
+  justify-content: center;
+  display: flex;
+  font-weight: 600;
+  gap: 8px;
+}
+.main .allElem header .time-container .day {
+  text-shadow: 2px 2px 5px black;
+  font-size: 24px;
+  padding-left: 3px;
+}
+.main .allElem header .time-container .time {
+  font-size: 60px;
+  width: 390px;
+  height: 60px;
+  color: #f9f1e3;
+  display: flex;
+  justify-content: flex-start;
+  font-weight: bolder;
+  text-shadow: 2px 2px 5px black;
+}
+.main .allElem header .weather-container {
+  background-color: #100200;
+  opacity: 50%;
+  border-radius: 20px;
+  height: 185px;
+  width: 290px;
+  display: flex;
+  padding: 16px 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .allElem header .weather-container .sub-container {
+  height: 132px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+.main .allElem header .weather-container .sub-container .temp {
+  font-size: 24px;
+  font-weight: 600;
+}
+.main .allElem header .weather-container .sub-container .temp-info {
+  font-size: 12px;
+}
+.main .allElem header .weather-container .line {
+  height: 64px;
+  width: 2px;
+  border-radius: 2px;
+  background-color: #866f6f;
+}
+.main .allElem header .weather-container .w-sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.main .allElem header .weather-container .w-sub-container .box {
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.main .allElem header .weather-container .w-sub-container .box .preci-container2 {
+  font-size: 12px;
+}
+.main .allElem header .weather-container .w-sub-container .box .preci-container2 .preci-val {
+  font-size: 14px;
 }
 .main .allElem .card {
   height: 350px;
@@ -67,7 +167,7 @@ body {
 }
 .main .allElem .card .elem h2 {
   position: absolute;
-  font-size: 30px;
+  font-size: 20px;
   right: 5%;
   bottom: 4%;
 }
@@ -404,6 +504,7 @@ body {
   font-weight: 500;
   transition: all ease 0.1s;
 }
+
 .close-container:hover .leftright {
   transform: rotate(-45deg);
   background-color: #f25c66;
