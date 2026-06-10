@@ -167,9 +167,16 @@ body {
 }
 .main .allElem .card .elem h2 {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   font-size: 20px;
   right: 5%;
   bottom: 4%;
+}
+.main .allElem .card .elem h2 .icons {
+  width: 28px;
 }
 .main .allElem .card .elem img {
   height: 100%;
