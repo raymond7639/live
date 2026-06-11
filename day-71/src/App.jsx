@@ -1,12 +1,17 @@
 const App = () => {
   // js code here
-const a = () => {
-  alert("clicked");
-};
+  function morning() {
+    
+    console.log("Good Morning");
+    
+  }
+// const a = () => {
+//   console.log("clicked");
+// };
   return <>
           <div>1</div>
           <div>hi</div>
-          <button onClick={a}>click</button>
+          <button onClick={morning}>click</button>
 
         </>;
 };
