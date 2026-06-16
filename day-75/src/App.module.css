@@ -1,5 +1,1 @@
-.app_h1{
-    color:rgb(210, 59, 302);
-    font-size: 100px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+@import "tailwindcss";
