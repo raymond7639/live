@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 const App = () => {
   const [name, setname] = useState("");
-  const {register,handles/ubmit}  =  useForm
+  const {register,handlesubmit}  =  useForm
 
   return (
     <div>
