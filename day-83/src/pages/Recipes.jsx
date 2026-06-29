@@ -8,7 +8,7 @@ const Recipes = () => {
   const renderrecipe = data.map((recipe) => (
     <RecipeCard recipe = {recipe} key={recipe.id}></RecipeCard>
   ));
-  return <div className="flex flex-wrap overflow-hidden gap-8 justify-evenly" >{renderrecipe}</div>;
+  return <div className="flex flex-wrap overflow-hidden gap-8 justify-evenly" >{data.length > 0 ? renderrecipe : "No recepies Found!"}</div>;
 };
 
 export default Recipes;
