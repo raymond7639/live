@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import { useForm } from "react-hook-form";
@@ -37,13 +37,28 @@ const SingleRecipe = () => {
     navigate("/recipes");
   };
 
+  const [favourite, setfavourite] = useState(
+    JSON.parse(localStorage.getItem("fav")) || [],
+  );
+
+  const favHandler = () => {
+    const copyfav = [...favourite, recipe];
+    setfavourite(copyfav);
+    localStorage.setItem("fav", JSON.stringify(copyfav));
+  };
+  const unFavHandler = () => {
+    const filterfav = favourite.filter((f) => f.id != recipe?.id);
+    setfavourite(filterfav);
+    localStorage.setItem("fav", JSON.stringify(filterfav));
+  };
+
   useEffect(() => {
     return () => {};
   }, []);
 
   return recipe ? (
     <div className="w-full flex justify-between ali ">
-      <div class="right w-full max-w-sm block  bg-gray-500 rounded-2xl overflow-hidden border border-gray-500 shadow-sm">
+      <div class="relative right w-full max-w-sm block  bg-gray-500 rounded-2xl overflow-hidden border border-gray-500 shadow-sm">
         {/* <!-- Image --> */}
         <img
           src={recipe.image}
@@ -52,12 +67,23 @@ const SingleRecipe = () => {
         />
 
         {/* <!-- Content --> */}
-        <div class="p-5">
+        <div class="p-5 relative">
           {/* <!-- Error -->
       <p class="text-red-500 text-xs mb-2">This is how error is shown</p> */}
 
           {/* <!-- Title --> */}
           <h1 class="text-2xl font-semibold text-white mb-1">{recipe.title}</h1>
+          {favourite.find((f) => f.id == recipe?.id) ? (
+            <i
+              onClick={unFavHandler}
+              class="absolute top-[5%] right-[5%] text-4xl text-red-400 ri-heart-fill"
+            ></i>
+          ) : (
+            <i
+              onClick={favHandler}
+              class="absolute top-[5%] right-[5%] text-4xl text-red-400 ri-heart-line"
+            ></i>
+          )}
 
           {/* <!-- Chef --> */}
           <p class="text-sm text-white mb-4">{recipe.chef}</p>
@@ -95,7 +121,7 @@ const SingleRecipe = () => {
         </div>
       </div>
 
-      <div className="max-w-2xl  mx-auto   bg-gray-600  rounded-xl p-6 md:p-8">
+      <div className="left max-w-2xl  mx-auto   bg-gray-600  rounded-xl p-6 md:p-8">
         <form onSubmit={handleSubmit(UpdateHandler)} className="space-y-2">
           <input
             className="w-full border-b placeholder:text-gray-200 border-gray-300 outline-none p-1"
